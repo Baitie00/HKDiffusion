@@ -24,6 +24,19 @@ The two most important parts of the project are:
 
 The project contains two main stages: trajectory generation and model training.
 
+### 0. Download the Pretrained EDM Checkpoint
+
+You need to download [edm-cifar10-32x32-uncond-vp.pkl](HKDiffusion/edm-cifar10-32x32-uncond-vp.pkl) manually into the HKDiffusion folder before running the code.
+
+Run:
+
+```bash
+wget -O HKDiffusion/edm-cifar10-32x32-uncond-vp.pkl \
+  https://nvlabs-fi-cdn.nvidia.com/edm/pretrained/edm-cifar10-32x32-uncond-vp.pkl
+```
+
+After downloading, the checkpoint should be located at [edm-cifar10-32x32-uncond-vp.pkl](HKDiffusion/edm-cifar10-32x32-uncond-vp.pkl).
+
 ### 1. Prepare Trajectory Data
 
 The script [data_preparation/trajectory_generation.py](HKDiffusion/data_preparation/trajectory_generation.py) uses the pretrained EDM checkpoint [edm-cifar10-32x32-uncond-vp.pkl](HKDiffusion/edm-cifar10-32x32-uncond-vp.pkl) to generate full denoising trajectories and save them into GPU-sharded `.pt` files under [data_preparation](HKDiffusion/data_preparation).
